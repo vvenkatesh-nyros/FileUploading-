@@ -1,0 +1,1 @@
+This is a FileUploading App where users can upload media files(Images/pdfs/word documents) when they logged into their account and Admin can see the list of users who are registered with this Application Admin can manage users(Delete,Edit) and in the index page we can send the media file as an attachment to our mail.
