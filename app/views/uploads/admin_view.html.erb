@@ -1,0 +1,207 @@
+
+<script>
+function remove1()
+{
+  document.getElementById("lightbox").remove();
+}
+
+
+$(function(){
+ $.ajax({
+  url: '/info',
+  type: 'GET',
+  success: function(data) {
+        $("#media").html(data);
+  }
+});
+
+});
+
+
+
+
+
+
+
+</script>
+<style>
+.hed
+{
+    margin-left:20px;
+    font-size: 15px;
+    color: #E19063;
+
+}
+
+#lightbox 
+{
+    position:fixed; 
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#778899;
+    opacity:1.0;
+    text-align:center;
+ }
+ #lightbox img 
+{
+     box-shadow:0 0 25px #111;
+    -webkit-box-shadow:0 0 25px #111;
+    -moz-box-shadow:0 0 25px #111;
+     max-width:540px;
+     max-height:800px;
+  
+}
+body
+{
+  padding: 0px;
+  margin:0 auto;
+}
+
+#main
+{
+  background-color:#E6E7E8;
+    height:80px;
+}
+.admin
+{
+    font-size:20px;
+    font-family:verdana;
+    float:right;
+    margin-right:30px;
+    padding-top:30px;
+    text-decoration: none;
+}
+#img1
+{
+  border:15px solid;
+}
+
+.mainhead
+{
+  font-size:25px;
+  padding-top:30px;
+  margin-left:350px;
+  font-color:#FE646A;
+}
+
+
+.userhead
+{
+  font-size:25px;
+  padding-top:30px;
+  margin-left:400px;
+  font-color:#FE646A;
+}
+.name
+{
+  padding-left:40px;
+  width:150px;
+  font-size:17px;
+}
+
+.head
+{
+  padding-left:40px;
+  width:150px;
+  font-size:15px;
+  color: blue;
+}
+
+
+.del1
+{
+    position:relative;
+    font-size:15px;
+    text-decoration: none;
+    padding-left:20px;
+}
+
+.mail
+{
+  display:none;
+  font-size:14px;
+}
+#mails
+{
+  color:#FFFFFF;
+  font-size:20px;
+}
+
+#media
+{
+  margin:0 auto; 
+    margin-top:50px;
+    width:100%;
+    height:1000px;
+    background-color:#E6E7E8;
+}
+#imgs
+{
+
+    width:30%;
+    margin:0 auto; 
+    background:#DDDDD5;
+    text-align:left; 
+    border:5px solid #000;
+    padding:10px;
+    float:left;
+     margin-left: 20px;
+   
+}
+#pdfs
+{
+    width:30%;
+    margin:0 auto;
+    background:#DDDDD5;
+    text-align:left;
+    border:5px solid #000;
+    padding:10px;
+    float:left;
+    margin-left: 20px;
+   
+}
+#docs
+{
+    width:27%;
+    margin:0 auto; 
+    background:#DDDDD5;
+    text-align:left; 
+    border:5px solid #000;
+    padding:10px;
+    float:left;
+    margin-left: 20px;
+
+}
+
+.pagination
+{
+  float:right;
+  font-size:14px;
+  margin-right:100px;
+}
+
+#btn
+{
+   margin-left:700px;
+   margin-top:40px;
+}
+
+
+</style>
+
+  <div id="main">
+    <%= link_to "Logout" ,admin_logout_path,:class => "admin" %>
+    <h1 class="mainhead">Welcome To DashBoard</h1>
+  </div>
+
+<div id="media">
+
+
+</div>
+
+
+<div id="script1">
+<%= render :partial =>'script' %>
+</div>

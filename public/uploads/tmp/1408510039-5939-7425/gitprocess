@@ -1,0 +1,137 @@
+nyros@nyros:~$ cd Desktop/
+nyros@nyros:~/Desktop$ git clone git@github.com:vvenkatesh-nyros/jsvalidation.git
+Cloning into 'jsvalidation'...
+The authenticity of host 'github.com (192.30.252.131)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.252.131' (RSA) to the list of known hosts.
+warning: You appear to have cloned an empty repository.
+nyros@nyros:~/Desktop$ cd jsvalidation/
+nyros@nyros:~/Desktop/jsvalidation$ ls
+nyros@nyros:~/Desktop/jsvalidation$ git init
+Reinitialized existing Git repository in /home/nyros/Desktop/jsvalidation/.git/
+nyros@nyros:~/Desktop/jsvalidation$ git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	CSS/
+#	JS/
+#	fonts/
+#	images/
+#	index.html
+nothing added to commit but untracked files present (use "git add" to track)
+nyros@nyros:~/Desktop/jsvalidation$ git add .
+nyros@nyros:~/Desktop/jsvalidation$ touch README.md
+nyros@nyros:~/Desktop/jsvalidation$ ls
+CSS  fonts  images  index.html  JS  README.md
+nyros@nyros:~/Desktop/jsvalidation$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   CSS/Styles.css
+#	new file:   JS/Progress.js
+#	new file:   JS/Validations.js
+#	new file:   JS/Validations.js.bak
+#	new file:   fonts/MarketingScript.ttf
+#	new file:   images/arrow_left.png
+#	new file:   images/bg.jpg
+#	new file:   images/key.png
+#	new file:   images/user.png
+#	new file:   index.html
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	README.md
+nyros@nyros:~/Desktop/jsvalidation$ git add README.md
+nyros@nyros:~/Desktop/jsvalidation$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   CSS/Styles.css
+#	new file:   JS/Progress.js
+#	new file:   JS/Validations.js
+#	new file:   JS/Validations.js.bak
+#	new file:   README.md
+#	new file:   fonts/MarketingScript.ttf
+#	new file:   images/arrow_left.png
+#	new file:   images/bg.jpg
+#	new file:   images/key.png
+#	new file:   images/user.png
+#	new file:   index.html
+#
+nyros@nyros:~/Desktop/jsvalidation$ git commit -m "first commit"
+[master (root-commit) 54b346b] first commit
+ 10 files changed, 1812 insertions(+)
+ create mode 100644 CSS/Styles.css
+ create mode 100644 JS/Progress.js
+ create mode 100644 JS/Validations.js
+ create mode 100644 JS/Validations.js.bak
+ create mode 100644 README.md
+ create mode 100644 fonts/MarketingScript.ttf
+ create mode 100644 images/arrow_left.png
+ create mode 100644 images/bg.jpg
+ create mode 100644 images/key.png
+ create mode 100644 images/user.png
+ create mode 100644 index.html
+nyros@nyros:~/Desktop/jsvalidation$ git remote add origin https://github.com/vvenkatesh-nyros/jsvalidation.git
+fatal: remote origin already exists.
+nyros@nyros:~/Desktop/jsvalidation$ git push -u origin master
+Warning: Permanently added the RSA host key for IP address '192.30.252.130' to the list of known hosts.
+Counting objects: 17, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (17/17), 31.53 KiB, done.
+Total 17 (delta 1), reused 0 (delta 0)
+To git@github.com:vvenkatesh-nyros/jsvalidation.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+nyros@nyros:~/Desktop/jsvalidation$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   README.md
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+nyros@nyros:~/Desktop/jsvalidation$ git add README.md
+nyros@nyros:~/Desktop/jsvalidation$ git commit -m "second commit"[master 369755a] second commit
+ 1 file changed, 1 insertion(+)
+nyros@nyros:~/Desktop/jsvalidation$ git push git@github.com:vvenkatesh-nyros/jsvalidation.git
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 283 bytes, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git@github.com:vvenkatesh-nyros/jsvalidation.git
+   54b346b..369755a  master -> master
+nyros@nyros:~/Desktop/jsvalidation$ cd ..
+nyros@nyros:~/Desktop$ mkdir june13
+nyros@nyros:~/Desktop$ cd june13
+nyros@nyros:~/Desktop/june13$ git clone git@github.com:vvenkatesh-nyros/jsvalidation.git 
+Cloning into 'jsvalidation'...
+remote: Counting objects: 20, done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 20 (delta 3), reused 19 (delta 2)
+Receiving objects: 100% (20/20), 31.73 KiB, done.
+Resolving deltas: 100% (3/3), done.
+nyros@nyros:~/Desktop/june13$ cd jsvalidation/
+nyros@nyros:~/Desktop/june13/jsvalidation$ git status
+# On branch master
+nothing to commit (working directory clean)
+nyros@nyros:~/Desktop/june13/jsvalidation$ ^C
+nyros@nyros:~/Desktop/june13/jsvalidation$ 
+

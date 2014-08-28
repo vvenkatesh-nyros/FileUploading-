@@ -1,0 +1,28 @@
+<% @uploads2.each do |upload| %>
+    <% if upload.filename =~ /^.*\.(pdf|PDF)$/ %>
+      <table>
+      <tr>
+          <td>
+          <%= link_to image_tag("/assets/pdf.png",:width => "50px",:height => "50px"), "/#{upload.file}",:class => 'lightbox_trigger22',:id => "#{upload.id}" %>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="name">
+          <%= upload.filename %>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+          <%= link_to 'Delete', upload, method: :delete,:class => "del" ,:remote => true %>
+          </td>
+    
+      </tr>
+      </table>
+   <% end %> 
+<% end %> 

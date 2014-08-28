@@ -1,0 +1,199 @@
+
+<script>
+
+
+jQuery(document).ready(function($) {
+  return $(".lightbox_trigger").click(function(e) {
+    var id_ref, image_href, lightbox;
+    e.preventDefault();
+    image_href = $(this).attr("src");
+    id_ref = $(this).attr("id");
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<img src=\"" + image_href + "\" />");
+      $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\" >" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + " <div id=\"content\">" + "<img id=\"img1\" src=\"" + image_href + "\" />"  +  "<br>"+"</div>" + "<form id=\"frm\"  onload=\"myfunction()\" action=\"/sendmail\">" + "<input hidden value=\"" + image_href + "\"" + "name=\"src\"/>" + "<input hidden value=\"" + id_ref + "\"" + "name=\"idref\"/>" + "<br>" + "EMail:<input name=\"email\"  required=\"true\" oninvalid=\"this. setCustomValidity('Email Id must not be null')\" oninput=\"setCustomValidity('')\" id=\"mail\" type=\"text\">" + "<br>" + "Subject:" + "<textarea name=\"body\"  cols=\"28\" rows=\"5\"></textarea>" + "<br>" + "<input type=\"submit\"  value=\"Send\" onclick=\"load()\">" + "</form>" + "<img src=\"/assets/loading.gif\" id=\"loading\"  style=\"display:none\" >" + "</div>";
+    }
+    $("body").append(lightbox);
+  });
+});
+
+jQuery(document).ready(function($) {
+  return $(".lightbox_trigger1").click(function(e) {
+    var id_ref, image_href, lightbox;
+    e.preventDefault();
+    image_href = $(this).attr("href");
+    image_href = image_href.replace("//", "/");
+    id_ref = $(this).attr("id");
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<embed src=\"" + image_href + "\" />");
+       $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\">" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + "<div id=\"content\">" + "<embed src=\"" + image_href + "\"" + "height=\"300px\"" + "width=\"800px\"/>" + "</div>" + "<form id=\"frm\" action=\"/sendmail\">" + "<input  hidden value=\"" + image_href + "\"" + "name=\"src\"/>" + "<input hidden value=\"" + id_ref + "\"" + "name=\"idref\"/>" + "<br>" + "EMail:<input name=\"email\"  required oninvalid=\"this. setCustomValidity('Email Id must not be null')\" oninput=\"setCustomValidity('')\" id=\"mail\" type=\"text\">" + "<br>" + "Subject:" + "<textarea name=\"body\"  cols=\"28\" rows=\"5\"></textarea>" + "<br>" + "<input type=\"submit\" onclick=\"load()\" value=\"Send\">" + "</form>" + "<img src=\"/assets/loading.gif\" id=\"loading\"  style=\"display:none\" >" + "</div>";
+      $("body").append(lightbox);
+    }
+  });
+});
+
+jQuery(document).ready(function($) {
+  return $(".lightbox_trigger2").click(function(e) {
+    var id_ref, image_href, lightbox;
+    e.preventDefault();
+    image_href = $(this).attr("href");
+    image_href = image_href.replace("//", "/");
+    id_ref = $(this).attr("id");
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<a href=\"" + image_href + "\"" + "type=\"application/msword\">" + "</a>");
+      $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\">" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + "<div id=\"content\">" + "<iframe src=\"http://docs.google.com/viewer?embedded=true&url=" + encodeURIComponent("http://localhost:3000" + image_href) + "\" width=\"500\" height=\"300\" style=\"border: none;margin : 0 auto; display : block;\"/></iframe>" + "<br>" + "</div>" + "<form id=\"frm\" action=\"/sendmail\">" + "<input hidden value=\"" + image_href + "\"" + "name=\"src\"/>" + "<input hidden value=\"" + id_ref + "\"" + "name=\"idref\"/>" + "<br>" + "EMail:<input name=\"email\"  required oninvalid=\"this. setCustomValidity('Email Id must not be null')\" oninput=\"setCustomValidity('')\" id=\"mail\" type=\"text\">" + "<br>" + "Subject:" + "<textarea name=\"body\"  cols=\"28\" rows=\"5\"></textarea>" + "<br>" + "<input type=\"submit\" onclick=\"load()\" value=\"Send\">" + "</form>" + "<img src=\"/assets/loading.gif\" id=\"loading\"  style=\"display:none\" >" + "</div>";
+      $("body").append(lightbox);
+    }
+  });
+});
+
+jQuery(document).ready(function($) {
+  return $("#close").click(function(e) {
+    e.preventDefault();
+    return $("#mesg").hide();
+  });
+});
+
+$(".del").click(function() {
+  var res;
+  res = confirm("confirm before delete?");
+  if (res === false) {
+    return false;
+  } else {
+    return $.ajax({
+      url: "/info",
+      type: "GET",
+      success: function(data) {
+        return $("#media").html(data);
+      }
+    });
+  }
+});
+
+
+
+$(".del1").click(function() {
+  var res;
+  res = confirm("confirm before delete?");
+  if (res === false) {
+    return false;
+  } else {
+    return $.ajax({
+      url: "/content",
+      type: "GET",
+      success: function(data) {
+        return $("#wrappers").html(data);
+      }
+    });
+  }
+});
+
+
+$("td a#delete_user").click(function() {
+  var res, uname;
+  res = confirm("confirm before delete?");
+  if (res === false) {
+    return false;
+  } else {
+    uname = $(this).parent("td").siblings("td#uname").text().trim();
+    return $.ajax({
+      url: "/delete_user?uname=" + uname,
+      type: "GET",
+      success: function(data) {
+        return $("#media").html(data);
+      }
+    });
+  }
+});
+
+
+jQuery(document).ready(function($) {
+  return $(".mailview").click(function(e) {
+    var lightbox, mails;
+    e.preventDefault();
+    mails = $(this).parents("td").siblings(".mail").html();
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<p>" + mails + "</p>");
+      $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\">" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + "<div id=\"content\">" + "</div>" + "</div>";
+      $("body").append(lightbox);
+      $("#content").html("<h1>Viewing Emails in the order they sent</h1><p id=\"mails\">" + mails + "</p>");
+    }
+  });
+});
+
+
+
+jQuery(document).ready(function($) {
+  return $("input").blur(function() {
+    $(this).next("p").remove();
+    if ($(this).val() === "") {
+      $(this).after(" <p>This Field must not be empty</p>");
+      $(this).focus();
+      return false;
+    }
+  });
+});
+
+
+
+
+jQuery(document).ready(function($) {
+  return $(".lightbox_trigger11").click(function(e) {
+    var id_ref, image_href, lightbox;
+    e.preventDefault();
+    image_href = $(this).attr("src");
+    id_ref = $(this).attr("id");
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<img src=\"" + image_href + "\" />");
+      $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\" >" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + " <div id=\"content\">" + "<img id=\"img1\" src=\"" + image_href + "\" />" + "</div>" + "</div>";
+    }
+    $("body").append(lightbox);
+  });
+});
+
+jQuery(document).ready(function($) {
+  return $(".lightbox_trigger22").click(function(e) {
+    var id_ref, image_href, lightbox;
+    e.preventDefault();
+    image_href = $(this).attr("href");
+    image_href = image_href.replace("//", "/");
+    id_ref = $(this).attr("id");
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<embed src=\"" + image_href + "\" />");
+      $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\">" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + "<div id=\"content\">" + "<embed src=\"" + image_href + "\"" + "height=\"800px\"" + "width=\"1000px\" />" + "</div>" + "</div>";
+      $("body").append(lightbox);
+    }
+  });
+});
+
+jQuery(document).ready(function($) {
+  return $(".lightbox_trigger33").click(function(e) {
+    var id_ref, image_href, lightbox;
+    e.preventDefault();
+    image_href = $(this).attr("href");
+    image_href = image_href.replace("//", "/");
+    id_ref = $(this).attr("id");
+    if ($("#lightbox").length > 0) {
+      $("#content").html("<a href=\"" + image_href + "\"" + "type=\"application/msword\">" + "</a>");
+      $("#lightbox").show();
+    } else {
+      lightbox = "<div id=\"lightbox\">" + "<button id=\"btn\" onclick=\"remove1()\">Click to close</button>" + "<div id=\"content\">" + "<iframe src=\"http://docs.google.com/viewer?embedded=true&url=" + encodeURIComponent("http://localhost:3000" + image_href) + "\" width=\"600\" height=\"500\" style=\"border: none;margin : 0 auto; display : block;\"/></iframe>" + "<br>" + "</div>" + "</div>";
+      $("body").append(lightbox);
+    }
+  });
+});
+
+
+
+</script>

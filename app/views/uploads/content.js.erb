@@ -1,0 +1,10 @@
+
+$('#uploads11').html('<%= escape_javascript(render("uploads11")) %>');
+$('#uploads22').html('<%= escape_javascript(render("uploads22")) %>');
+$('#uploads33').html('<%= escape_javascript(render("uploads33")) %>');
+
+
+$('#paginator11').html('<%= escape_javascript(paginate(@uploads1,:param_name => "page_img",:remote => true).to_s) %>');
+$('#paginator22').html('<%= escape_javascript(paginate(@uploads2,:param_name => "page_pdf", :remote => true).to_s) %>');
+$('#paginator33').html('<%= escape_javascript(paginate(@uploads3,:param_name => "page_doc",:remote => true).to_s) %>');
+$('#script2').html('<%= escape_javascript(render("script")) %>');

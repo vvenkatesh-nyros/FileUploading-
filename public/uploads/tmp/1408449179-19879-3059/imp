@@ -1,0 +1,18 @@
+  dir = "home/nyros/Desktop/Rails_Apps/file_upload/public/data"
+  fileextension = ".png"
+  $.ajax
+  url: dir
+    success: (data) ->
+    alert "data"
+
+
+  img = document.createElement("img")
+  a = document.createElement("a")
+ 
+
+  $("img").attr "src", "second.jpg"
+  $("a").attr "href", "second.jpg"
+  $("img").attr "width", "100px"
+  $("img").attr "height", "100px"
+  $("a").appendTo "#pics"
+  $("img").appendTo "#pics"

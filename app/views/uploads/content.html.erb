@@ -1,0 +1,48 @@
+
+<br>
+<br>
+<div id="fo">
+<%= render 'form' %>
+</div>
+
+<br>
+<br>
+
+
+
+<div id="imgs">
+<h1 class="hed">Uploaded Images</h1>
+<div id="uploads11">
+<%= render 'uploads11' %>
+</div>
+<div id="paginator11">
+<%= paginate @uploads1,:param_name => "page_img" ,:remote => true %> 
+</div>
+</div>
+
+
+     
+<div id="pdfs">
+<h1 class="hed">Uploaded PDF files</h1>
+
+<div id="uploads22">
+<%= render 'uploads22' %>
+</div>
+<div id="paginator22">
+<%= paginate @uploads2,:param_name => "page_img" ,:remote => true %> 
+</div>
+</div>    
+     
+
+
+<div id="docs">
+<h1 class="hed">Uploaded Word Documents</h1>
+
+<div id="uploads33">
+<%= render 'uploads33' %>
+</div>
+<div id="paginator33">
+<%= paginate @uploads3,:param_name => "page_img" ,:remote => true %> 
+</div>
+</div>
+

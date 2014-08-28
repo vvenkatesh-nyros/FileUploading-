@@ -1,0 +1,13 @@
+
+
+$('#credents').html('<%= escape_javascript(render("credents")) %>');
+$('#uploads1').html('<%= escape_javascript(render("uploads1")) %>');
+$('#uploads2').html('<%= escape_javascript(render("uploads2")) %>');
+$('#uploads3').html('<%= escape_javascript(render("uploads3")) %>');
+
+
+$('#paginator').html('<%= escape_javascript(paginate(@credentials,:remote => true).to_s) %>');
+$('#paginator1').html('<%= escape_javascript(paginate(@uploads1,:param_name => "page_img",:remote => true).to_s) %>');
+$('#paginator2').html('<%= escape_javascript(paginate(@uploads2,:param_name => "page_pdf", :remote => true).to_s) %>');
+$('#paginator3').html('<%= escape_javascript(paginate(@uploads3,:param_name => "page_doc",:remote => true).to_s) %>');
+$('#script1').html('<%= escape_javascript(render("script")) %>');

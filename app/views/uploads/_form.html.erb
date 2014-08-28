@@ -1,0 +1,73 @@
+<head>
+<style>
+body
+{
+  padding: 0px;
+  margin:0 auto;
+  background-color:#778899;
+}
+#tot 
+{
+     width:400px;
+     height:200px;
+     border:5px solid #000;
+     margin-left:350px;
+    
+     border-radius:10px;
+     background-color:#DDDDD5;
+}
+.field
+{
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.actions
+{
+    margin-top:20px;
+    margin-left: 140px;
+}
+#fh
+{
+   margin-left: 80px;
+   color:#fff;
+   font-family:verdana;
+}
+#back
+{
+
+  margin-top:40px;
+  
+}
+   
+</style>
+</head>
+
+<%= form_for(@upload,:remote => true) do |f| %>
+  
+
+<div id="tot">
+  <h1 id="fh">New File Upload</h1>
+
+   <div class="field">
+    <%= f.file_field :file,:required => true %>
+     <% if @upload.errors.any? %>
+      <% @upload.errors.full_messages.each do |message| %>
+           <%= message %>
+      <% end %>
+  <% end %>
+  <%= f.text_field :filename,:hidden => true %>
+   </div>
+
+   <div class="actions">
+    <%= f.submit :Upload %>
+
+   </div>
+
+</div>
+
+<% end %>
+
+
+
+
+

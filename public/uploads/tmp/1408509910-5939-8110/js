@@ -1,0 +1,26 @@
+$("#sub").click ->
+    if $("#usr").val() is ""
+      $(this).after "<p>Enter all the fields</p>"
+      $("#usr").focus()
+      false
+   
+   else if $("#pwd").val() is "" 
+      $(this).after "<p>Enter all the fields</p>"
+      $("#pwd").focus()
+      false
+
+   else if $("#mail").val() is "" 
+      $(this).after "<p>Enter all the fields</p>"
+      $("#mail").focus()
+      false  
+
+   else if $("#pno").val() is "" 
+      $(this).after "<p>Enter all the fields</p>"
+      $("#pno").focus()
+      false   
+
+
+   else if $("#dob").val() is "" 
+      $(this).after "<p>Enter all the fields</p>"
+      $("#dob").focus()
+      false   

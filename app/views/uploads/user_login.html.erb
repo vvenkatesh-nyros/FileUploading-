@@ -1,0 +1,140 @@
+<head>
+<style>
+body
+{
+  padding: 0px;
+  margin:0 auto;
+  background-color:#778899;
+}
+#cred
+{
+     width:400px;
+     height:400px;
+     border:10px solid #000;
+     margin-left:350px;
+     margin-top:100px;
+    
+     border-radius:10px;
+     background-color:#DDDDD5;
+}
+.field
+{
+    margin-top: 40px;
+    margin-left:50px;
+     font-size: 15px;
+}
+.field1
+{
+    margin-top: 10px;
+    margin-left:50px;
+    font-size: 15px;
+}
+.field2
+{
+    margin-top: 10px;
+    margin-left:100px;
+    font-size: 15px;
+}
+.actions
+{
+    margin-top:20px;
+    margin-left:150px;
+}
+#mh
+{
+   margin-left:400px;
+   color:#fff;
+   font-family:verdana;
+   font-size: 35px;
+   margin-top:100px;
+}
+#back
+{
+
+  margin-top:40px;
+  
+}
+#notice
+{
+  font-size: 15px;
+}
+
+.admin
+{
+    font-size:20px;
+    font-family:verdana;
+    float:right;
+    margin-right:120px;
+    padding-top:30px;
+    text-decoration: none;
+}
+
+p
+{
+  
+   color:red;
+   margin-left:200px;
+   margin-top: 20px;
+}
+#notice
+{
+   font-size:20px;
+}
+   
+</style>
+</head>
+
+<%= form_for(@login,:url => { :action => :user_view }) do |f| %>
+
+<h1 id="mh">User Login</h1>
+
+
+<%= link_to "Home Page" ,root_path,:class => "admin" %>
+
+<p id="notice"><%= notice %></p>
+
+<div id="cred">
+ 
+
+   <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username,:required => true , :value => cookies.signed[:username]%>
+   </div>
+   <div class="field1">
+    <%= f.label :password %>
+    <%= f.password_field :password,:required => true ,:value => cookies.signed[:password]%>
+    </div>
+
+    <div class="field2">
+    <%= check_box("post", "validated",:name => "check1") %>
+    <%= f.label :Remember_Me %>
+   </div>
+
+   
+
+   <div class="actions">
+    <%= f.submit :Login %>
+   </div>
+
+  
+   <div>
+   <%= link_to "Forgot Password ?",forgot_password_path,:class => "admin" %>
+   </div>
+
+   <div>
+   <%= link_to "Create Account" ,person_path,:class => "admin" %>
+   </div>
+
+
+
+
+</div>
+
+<% end %>
+
+
+
+
+
+
+

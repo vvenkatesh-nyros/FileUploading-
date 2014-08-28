@@ -1,0 +1,32 @@
+<% @credentials.each do |upload| %>
+        
+    <table>
+       <tr>
+
+
+            <td class="name"  id ="uname">
+                <%= upload.username %>
+            </td>
+
+            <td class="name" >
+                <%= upload.password %>
+            </td>
+
+            <td class="name" id ="fname">
+                <%= upload.name %>
+            </td>
+
+            <td class="name" id ="umail">
+                <%= upload.email %>
+            </td>
+
+           <td class="name">
+             <%= link_to 'Delete', "#" ,:remote => true, :id => "delete_user" %>
+           </td>
+
+           <td class="name">
+             <%= link_to 'Edit', "/person_edit?unam=#{upload.username}&fname=#{upload.name}&umail=#{upload.email}", :id => "edit_user" %>
+           </td>
+        </tr>  
+    </table>
+<% end %>

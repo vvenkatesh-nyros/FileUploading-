@@ -1,0 +1,91 @@
+ 
+ <h1 class="userhead">Users List</h1>
+
+
+ <table>
+       <tr>  
+              
+
+            <td class="head">
+                <%= "Username" %>
+            </td>
+
+            <td class="head">
+                <%= "Password" %>
+            </td>
+
+            <td class="head">
+                <%= "Name" %>
+            </td>
+
+            <td class="head">
+                <%= "Email" %>
+            </td>
+
+           
+        </tr>  
+    </table>
+
+
+
+
+
+<div id="credents">
+<%= render 'credents' %>
+</div>
+<div id="paginator">
+<%= paginate @credentials,:remote => true %> 
+</div>
+
+<br>
+<br>
+
+
+<br>
+<br>
+
+
+<div id="imgs">
+<h1 class="hed">Uploaded Images</h1>
+<div id="uploads1">
+<%= render 'uploads1' %>
+</div>
+<div id="paginator1">
+<%= paginate @uploads1,:param_name => "page_img" ,:remote => true %> 
+</div>
+</div>
+
+
+     
+<div id="pdfs">
+<h1 class="hed">Uploaded PDF files</h1>
+<div id="uploads2">
+ <%= render 'uploads2' %>
+ </div>
+<div id="paginator2">
+ <%= paginate @uploads2,:param_name => "page_pdf",:remote => true %> 
+ </div>
+</div>    
+     
+
+
+<div id="docs">
+<h1 class="hed">Uploaded Word Documents</h1>
+<div id="uploads3">
+<%= render 'uploads3' %>
+</div>
+<div id="paginator3">
+<%= paginate @uploads3,:param_name => "page_doc",:remote => true %> 
+</div>
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+   

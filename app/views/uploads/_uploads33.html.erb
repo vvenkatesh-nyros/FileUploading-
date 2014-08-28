@@ -1,0 +1,29 @@
+<% @uploads3.each do |upload| %>
+   <% if upload.filename =~ /^.*\.(doc|docx)$/ %>
+      <table>
+      <tr>
+          <td>
+          <%= link_to image_tag("/assets/microw.png",:width => "50px",:height => "50px"),  "/#{upload.file}" ,:class => 'lightbox_trigger33' ,:id => "#{upload.id}" %>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="name">
+          <%= upload.filename %>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <% if session[:user]==upload.username %>
+          <td>
+          <%= link_to 'Delete', upload, method: :delete,:class => "del1",:remote => true %>
+          </td>
+        <% end %>
+      </tr>
+      </table>  
+   <% end %>  
+<% end %>  

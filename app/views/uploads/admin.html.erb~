@@ -1,0 +1,105 @@
+<head>
+<style>
+body
+{
+  padding: 0px;
+  margin:0 auto;
+  background-color:#778899;
+}
+#cred
+{
+     width:400px;
+     height:250px;
+     border:10px solid #000;
+     margin-left:350px;
+     margin-top:100px;
+    
+     border-radius:10px;
+     background-color:#DDDDD5;
+}
+.field
+{
+    margin-top: 40px;
+    margin-left:50px;
+     font-size: 15px;
+}
+.field1
+{
+    margin-top: 10px;
+    margin-left:50px;
+    font-size: 15px;
+}
+.actions
+{
+    margin-top:20px;
+    margin-left:150px;
+}
+#mh
+{
+   margin-left:400px;
+   color:#fff;
+   font-family:verdana;
+   font-size: 35px;
+   margin-top:100px;
+}
+#back
+{
+
+  margin-top:40px;
+  
+}
+#notice
+{
+  font-size: 15px;
+}
+
+.admin
+{
+    font-size:20px;
+    font-family:verdana;
+    float:right;
+    margin-right:30px;
+    padding-top:30px;
+    text-decoration: none;
+}
+   
+</style>
+</head>
+
+<%= form_for(@login,:url => { :action => :admin_view }) do |f| %>
+
+<h1 id="mh">Admin login</h1>
+
+<%= link_to "Home Page" ,uploads_path,:class => "admin" %>
+
+<div id="cred">
+ 
+
+   <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username,:required => true %>
+   </div>
+   <div class="field1">
+    <%= f.label :password %>
+    <%= f.password_field :password,:required => true%>
+    </div>
+   
+   
+
+   <div class="actions">
+    <%= f.submit :Login %>
+
+    <p id="notice"><%= notice %></p>
+
+   </div>
+
+</div>
+
+<% end %>
+
+
+
+
+
+
+

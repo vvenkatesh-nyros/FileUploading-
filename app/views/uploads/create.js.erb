@@ -1,0 +1,9 @@
+$.ajax({
+        url: "/content",
+        type: 'GET',
+        success: function(data) {
+              $("#wrappers").html(data);
+        }
+    });
+
+
